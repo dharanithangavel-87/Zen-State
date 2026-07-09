@@ -1,0 +1,1 @@
+if (window.guard.protect()) { document.addEventListener("DOMContentLoaded", () => { window.store.renderUser(); window.store.renderRole(); const u = getUser(); document.getElementById("pProfName").innerText = u.fullName || u.name; document.getElementById("pProfEmail").innerText = u.email; }); }

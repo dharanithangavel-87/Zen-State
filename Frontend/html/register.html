@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"><title>ZenState | Register</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <div class="login-container">
+        <div class="login-card">
+            <h2 style="text-align: center; margin-bottom: 2rem;">Join ZenState</h2>
+            <form onsubmit="register(event)">
+                <div class="form-group"><label class="form-label">Full Name</label><input type="text" class="form-control" id="name" required></div>
+                <div class="form-group"><label class="form-label">Email Address</label><input type="email" class="form-control" id="email" required></div>
+                <div class="form-group"><label class="form-label">Password</label><input type="password" class="form-control" id="password" required></div>
+                <div class="form-group">
+                    <label class="form-label">Account Type</label>
+                    <select class="form-control" id="role" style="height: 45px; background: white;">
+                        <option value="PRACTITIONER">PRACTITIONER</option>
+                        <option value="WELLNESS_COACH">WELLNESS_COACH</option>
+                        <option value="ZEN_MASTER">ZEN_MASTER</option>
+                    </select>
+                </div>
+                <button class="btn-submit" type="submit">Start Your Journey</button>
+            </form>
+            <div style="text-align: center; margin-top: 2rem; font-size: 0.85rem;"><a href="login.html" style="color: #d97706; text-decoration: none;">Login instead</a></div>
+        </div>
+    </div>
+    <script src="../javascript/config.js"></script><script src="../javascript/store.js"></script><script src="../javascript/auth.js"></script>
+</body>
+</html>
