@@ -28,13 +28,18 @@ public class SecurityConfig {
                 .csrf(csrf -> csrf.disable())
 
                 .authorizeHttpRequests(auth -> auth
-                        .requestMatchers(
-                                "/api/auth/**"
-                        ).permitAll()
-
-                        .anyRequest()
-                        .authenticated()
-                )
+        // 1. Allow all pre-flight OPTIONS requests
+        .requestMatchers(org.springframework.http.HttpMethod.OPTIONS, "/**").permitAll() 
+        
+        // 2. Open auth routes completely
+        .requestMatchers("/api/auth/**").permitAll()
+        
+        // 3. Clear the 403 lock completely for your entities
+        .requestMatchers("/api/plans/**", "/api/sessions/**", "/api/alerts/**").permitAll()
+        
+        // 4. Keep any other unexpected routes secure
+        .anyRequest().authenticated()
+    )
 
                 .sessionManagement(session ->
                         session.sessionCreationPolicy(
